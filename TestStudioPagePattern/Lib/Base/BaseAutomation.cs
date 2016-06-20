@@ -50,10 +50,14 @@ namespace TestStudioPagePattern.Lib.Base
 
         private static HtmlFindExpression PrependFindExpression(string[] originalExpression, string[] prefixExpression)
         {
-            if(prefixExpression == null || prefixExpression.Length <= 0 || originalExpression == null || originalExpression.Length <= 0)
+            if(prefixExpression == null || prefixExpression.Length <= 0)
             {
-                throw new Exception("Trying to combine invalid find expressions.");
+                throw new Exception("Prefix expression is invalid.");
             }
+			if(originalExpression == null || originalExpression.Length <= 0))
+			{
+				throw new Exception("Original expression is invalid.");
+			}
             string[] prepended = new string[prefixExpression.Length + 1 + originalExpression.Length];
             Array.Copy(prefixExpression, 0, prepended, 0, prefixExpression.Length);
             prepended[prefixExpression.Length] = "|";
