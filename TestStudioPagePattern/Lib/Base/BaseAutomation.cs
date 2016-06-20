@@ -44,7 +44,7 @@ namespace TestStudioPagePattern.Lib.Base
             }
             catch (Exception)
             {
-                throw new Exception($"Element of type {typeof(T).FullName} not found. Find expression: {expression.ToString()}.");
+                throw new Exception($"Element of type {typeof(T).FullName} not found. Find expression: \"{expression.ToString()}\".");
             }
         }
 
