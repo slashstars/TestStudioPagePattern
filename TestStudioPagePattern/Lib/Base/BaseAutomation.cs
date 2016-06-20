@@ -54,17 +54,15 @@ namespace TestStudioPagePattern.Lib.Base
             {
                 throw new Exception("Trying to combine invalid find expressions.");
             }
-            string[] prepended = new string[prefixExpression.Length + 1 + originalExpression.Length];
-            Array.Copy(prefixExpression, 0, prepended, 0, prefixExpression.Length);
-            prepended[prefixExpression.Length] = "|";
-            Array.Copy(originalExpression, 0, prepended, prefixExpression.Length + 1, originalExpression.Length);
-            return new HtmlFindExpression(prepended);
+            HtmlFindExpression prepended = new HtmlFindExpression(prefixExpression);
+            prepended.AppendClauses(true, originalExpression);
+
+            return prepended;
         }
 
         private static HtmlFindExpression PrependFindExpression(HtmlFindExpression originalExpression, string[] prefixExpression)
         {
-            string[] original = originalExpression.Clauses;
-            return PrependFindExpression(original, prefixExpression);
+            return PrependFindExpression(originalExpression.Clauses, prefixExpression);
         }
     }
 }
