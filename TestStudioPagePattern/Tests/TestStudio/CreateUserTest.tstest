@@ -1,0 +1,129 @@
+{
+  "__type": "ArtOfTest.WebAii.Design.ProjectModel.Test",
+  "__value": {
+    "DomStatesCounter": {},
+    "WebKitExecutionDelay": 0,
+    "ReuseAppWindow": 0,
+    "ProfilerResultsDirectory": null,
+    "ProfilerServerName": null,
+    "ProfilerBenchmarkResultsFilePath": null,
+    "ProfilerBenchmarkResultsId": "00000000-0000-0000-0000-000000000000",
+    "ProfilerConfigurationId": "00000000-0000-0000-0000-000000000000",
+    "ProfilerConfigurations": {},
+    "CurrentReferences": [
+      "System",
+      "System.Core",
+      "ArtOfTest.WebAii, Version=2016.1.330.0, Culture=neutral, PublicKeyToken=4fd5f65be123776c",
+      "ArtOfTest.WebAii.Design, Version=2016.1.330.0, Culture=neutral, PublicKeyToken=4fc62bbc3827ab1d",
+      "Telerik.WebAii.Controls.Html, Version=2016.1.330.0, Culture=neutral, PublicKeyToken=528163f3e645de45",
+      "Telerik.WebAii.Controls.Xaml, Version=2016.1.330.0, Culture=neutral, PublicKeyToken=528163f3e645de45",
+      "Telerik.WebAii.Controls.Xaml.Wpf, Version=2016.1.330.0, Culture=neutral, PublicKeyToken=528163f3e645de45",
+      "Telerik.TestingFramework.Controls.KendoUI, Version=2016.1.330.0, Culture=neutral, PublicKeyToken=528163f3e645de45",
+      "packages\\NUnit.3.2.1\\lib\\net45\\nunit.framework.dll",
+      "System.Configuration",
+      "Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+      "System.Windows.Forms"
+    ],
+    "Steps": {
+      "__type": "ArtOfTest.Common.Design.ProjectModel.AutomationStepList",
+      "__value": [
+        {
+          "__type": "ArtOfTest.WebAii.Design.ProjectModel.AutomationStep",
+          "__value": {
+            "Runtime ID": "ad3fed6d-73a1-4dd5-8657-4b156fe84c27",
+            "Description": "New Coded Step",
+            "CustomDescription": null,
+            "Step": {
+              "__type": "ArtOfTest.WebAii.Design.IntrinsicTranslators.Descriptors.CodedStepDescriptor",
+              "__value": {
+                "Code": "            AutomationContext.Initialize(Manager);\r\n\r\n            var admin = new User\r\n            {\r\n                Email = \"admin@abc.com\",\r\n                Password = \"changeme\"\r\n            };\r\n            var newUser = new User\r\n            {\r\n                Email = \"jane.doe@email.com\",\r\n                FirstName = \"Jane\",\r\n                LastName = \"Doe\",\r\n                Password = \"1234567890\",\r\n                IsAdmin = true\r\n            };\r\n\r\n            AutomationContext.Manager.ActiveBrowser.NavigateTo(\"/\");\r\n\r\n            AppPages.CurrentProjectsPage\r\n                .Header\r\n                .LogInButton.CheckEnabledAndClick();\r\n\r\n            AppPages.LogInModal\r\n                .PopulateUser(admin)\r\n                .SignInButton.CheckEnabledAndClick();\r\n\r\n            AppPages.CurrentProjectsPage.Header.LogOutButton.Wait.ForVisible();\r\n\r\n            AppPages.CurrentProjectsPage\r\n                .Header\r\n                .AdminLink.Click();\r\n\r\n            AppPages.CurrentProjectsPage\r\n                .Header\r\n                .ManageUsersLink.Click();\r\n\r\n            AppPages.ManageUsersPage\r\n                .NewUserButton.CheckEnabledAndClick();\r\n\r\n            AppPages.NewUserPage\r\n                .PopulateUser(newUser)\r\n                .SaveButton.CheckEnabledAndClick();\r\n\r\n            AppPages.ManageUsersPage.SuccessAlertDiv.Wait.ForVisible();\r\n",
+                "RequiresSilverlight": false,
+                "WaitOnElements": true,
+                "WaitOnElementsTimeout": 30000,
+                "UseStepWaitOnElementsTimout": false,
+                "Pause": 0,
+                "RunsAgainstVersion": "",
+                "Constraints": {
+                  "__type": "ArtOfTest.Common.Design.Extensibility.Descriptors.DescriptorConstraints",
+                  "__value": {
+                    "ConstraintValues": {}
+                  }
+                },
+                "Elements": {},
+                "StepType": 4,
+                "LogMessageOnFailure": "",
+                "EditorType": "",
+                "DataBindingExpressions": {}
+              }
+            },
+            "Enabled": true,
+            "Order": 1,
+            "Id": "CreateUserTest_CodedStep",
+            "StepState": 1,
+            "ContinueOnFailure": false,
+            "StepImageKey": "CreateUserTestggqw4dgl.u2f",
+            "QcId": 0,
+            "QcVersionStamp": 0,
+            "Version": 200
+          }
+        }
+      ]
+    },
+    "IndependentDescriptors": [],
+    "HtmlDescription": "",
+    "SilverlightEnabled": false,
+    "IsSilverlightApp": false,
+    "SilverlightAppWebUrl": "",
+    "SilverlightAppLocalDirectory": "",
+    "SilverlightAppRecordLocal": false,
+    "SilverlightAppOriginUri": null,
+    "WpfAppPath": null,
+    "UseDefaultWpfAppPath": false,
+    "TestAssembly": "TestStudioPagePattern.dll",
+    "TestAssemblyPath": "bin",
+    "TestClass": "TestStudioPagePattern.Tests.TestStudio.CreateUserTest",
+    "IsManual": false,
+    "ResourceFilePath": "Tests\\TestStudio\\CreateUserTest.resx",
+    "HasCodeBehind": true,
+    "DataInfo": {
+      "__type": "ArtOfTest.Common.Design.Data.DataInfo",
+      "__value": {
+        "ConnectionString": "",
+        "DefaultToGrid": true,
+        "DataRange": "",
+        "LoadRecordsCount": null,
+        "DataTableName": "",
+        "DataProvider": "",
+        "DataEnabled": true,
+        "HasBuiltinGrid": false,
+        "DataType": 4,
+        "BuiltInData": null,
+        "BuiltInDocumentKey": null,
+        "TSQL": ""
+      }
+    },
+    "VSProperties": {
+      "Timeout": "0",
+      "ExecId": "00000000-0000-0000-0000-000000000000"
+    },
+    "DeploymentItems": [],
+    "IsTestFragment": false,
+    "StopTestListOnFailure": false,
+    "InheritParentDataSource": false,
+    "BrowserType": 0,
+    "QcId": 0,
+    "QcFilePath": null,
+    "QcTestVersionStamp": 0,
+    "TestLinks": [],
+    "Description": "",
+    "Name": "CreateUserTest",
+    "Owner": null,
+    "Path": "Tests\\TestStudio\\CreateUserTest.tstest",
+    "Priority": 0,
+    "TestType": 0,
+    "UniqueId": "1a8cbaf5-ec4e-4bd0-b355-554b8b7f1bb6",
+    "Id": "1a8cbaf5-ec4e-4bd0-b355-554b8b7f1bb6",
+    "ProjectId": "fad47a6f-9d93-4948-b0d7-739063d9252e",
+    "Version": 200
+  }
+}
