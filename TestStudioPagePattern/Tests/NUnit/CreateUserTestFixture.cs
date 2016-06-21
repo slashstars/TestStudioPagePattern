@@ -31,7 +31,6 @@ namespace TestStudioPagePattern.Tests.NUnit
                 Password = "1234567890",
                 IsAdmin = true
             };
-            AutomationContext.Manager.LaunchNewBrowser();
             AutomationContext.Manager.ActiveBrowser.NavigateTo("/");
                         
             AppPages.CurrentProjectsPage
