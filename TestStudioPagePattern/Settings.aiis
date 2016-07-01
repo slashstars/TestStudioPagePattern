@@ -198,7 +198,7 @@
     ],
     "ScheduleServerUrl": "http://localhost:8009",
     "IsScheduleServerRemote": false,
-    "ProjectVersion": "2016.1.321.0",
+    "ProjectVersion": "2016.2.610.0",
     "Namespace": "TestStudioPagePattern",
     "AssemblyName": "TestStudioPagePattern",
     "OutputFolder": "bin",
