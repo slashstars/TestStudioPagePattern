@@ -24,6 +24,10 @@ namespace TestStudioPagePattern.Context
             _manager = new Manager(true);
             _manager.Settings.Web.DefaultBrowser = Configuration.DefaultBrowser;
             _manager.Settings.Web.BaseUrl = Configuration.BaseUrl;
+			_manager.Settings.ElementWaitTimeout = Configuration.ElementWaitTimeout;
+			_manager.Settings.ExecutionDelay = Configuration.ExecutionDelay;
+			_manager.Settings.AnnotationMode = Configuration.AnnotationMode;
+			_manager.Settings.AnnotateExecution = Configuration.AnnotateExecution;
             _manager.Start();
             _manager.LaunchNewBrowser();
         }
@@ -38,8 +42,12 @@ namespace TestStudioPagePattern.Context
             _manager = manager;
             #if DEBUG
             _manager.Settings.Web.DefaultBrowser = Configuration.DefaultBrowser;
-            _manager.Settings.Web.BaseUrl = Configuration.BaseUrl;            
-            _manager.ActiveBrowser.Close();
+            _manager.Settings.Web.BaseUrl = Configuration.BaseUrl;
+			_manager.Settings.ElementWaitTimeout = Configuration.ElementWaitTimeout;
+			_manager.Settings.ExecutionDelay = Configuration.ExecutionDelay;
+			_manager.Settings.AnnotationMode = Configuration.AnnotationMode;
+			_manager.Settings.AnnotateExecution = Configuration.AnnotateExecution;
+			_manager.ActiveBrowser.Close();
             _manager.LaunchNewBrowser();
             #endif
         }
@@ -47,8 +55,11 @@ namespace TestStudioPagePattern.Context
         public static void CleanUp()
         {
             if (_manager == null) return;
-            _manager.ActiveBrowser?.ClearCache(BrowserCacheType.Cookies);
-            _manager.ActiveBrowser?.Close();
+			if(_manager.ActiveBrowser != null)
+			{
+				_manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
+				_manager.ActiveBrowser.Close();
+			}
             _manager.Dispose();
             _manager = null;
         }

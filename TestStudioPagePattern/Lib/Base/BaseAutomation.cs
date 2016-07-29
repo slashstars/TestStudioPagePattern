@@ -11,27 +11,41 @@ namespace TestStudioPagePattern.Lib.Base
     {
         protected string[] scopeFindExpression;
         
-        private Manager Manager => AutomationContext.Manager;
-        private Browser Browser => Manager.ActiveBrowser;
+        private Manager Manager
+		{
+			get
+			{
+				return AutomationContext.Manager;
+			}
+		}
+		
+        private Browser Browser
+		{
+			get
+			{
+				return Manager.ActiveBrowser;
+			}
+		}
+		
 
-        public T GetByExpression<T>(string expression, int timeoutMillis = 10000, bool refresh = true, bool waitForAjax = true) where T : HtmlControl, new()
+        public T GetByExpression<T>(string expression, int timeoutMillis = 10000, bool waitForAjax = true) where T : HtmlControl, new()
         {
-            return GetByExpression<T>(new HtmlFindExpression(expression), timeoutMillis, refresh, waitForAjax);
+            return GetByExpression<T>(new HtmlFindExpression(expression), timeoutMillis, waitForAjax);
         }
 
-        public T GetByExpression<T>(string[] expression, int timeoutMillis = 10000, bool refresh = true, bool waitForAjax = true) where T : HtmlControl, new()
+        public T GetByExpression<T>(string[] expression, int timeoutMillis = 10000, bool waitForAjax = true) where T : HtmlControl, new()
         {
-            return GetByExpression<T>(new HtmlFindExpression(expression), timeoutMillis, refresh, waitForAjax);
+            return GetByExpression<T>(new HtmlFindExpression(expression), timeoutMillis, waitForAjax);
         }
 
-        public T GetByExpression<T>(HtmlFindExpression expression, int timeoutMillis = 10000, bool refresh = true, bool waitForAjax = true) where T : HtmlControl, new()
+        public T GetByExpression<T>(HtmlFindExpression expression, int timeoutMillis = 10000, bool waitForAjax = true) where T : HtmlControl, new()
         {
-            if(scopeFindExpression != null && scopeFindExpression.Length > 0)
-            {
-                expression = PrependFindExpression(expression, scopeFindExpression);
-            }
+			if (scopeFindExpression != null && scopeFindExpression.Length > 0)
+			{
+				expression = PrependFindExpression(expression, scopeFindExpression);
+			}
 
-            if (waitForAjax)
+			if (waitForAjax)
             {
                 Browser.WaitUntilReady();
                 Browser.WaitForAjax(timeoutMillis);
@@ -44,7 +58,7 @@ namespace TestStudioPagePattern.Lib.Base
             }
             catch (Exception)
             {
-                throw new Exception($"Element of type \"{typeof(T).FullName}\" not found. Find expression: \"{expression.ToString()}\".");
+                throw new Exception("Element of type \"" + typeof(T).FullName + "\" not found. Find expression: \"{expression.ToString()}\".");
             }
         }
 
@@ -59,7 +73,7 @@ namespace TestStudioPagePattern.Lib.Base
 				throw new Exception("Original expression is invalid.");
 			}
             HtmlFindExpression prepended = new HtmlFindExpression(prefixExpression);
-            prepended.AppendClauses(true, originalExpression);
+			prepended.AppendClauses(true, originalExpression);
 
             return prepended;
         }

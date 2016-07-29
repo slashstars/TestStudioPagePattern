@@ -17,11 +17,41 @@ namespace TestStudioPagePattern.Lib.AppPages.Modals
 
         private LogInModal() { }
 
-        public HtmlInputEmail EmailTextbox => GetByExpression<HtmlInputEmail>("name=login");
-        public HtmlInputPassword PasswordTextbox => GetByExpression<HtmlInputPassword>("name=pass");
-        public HtmlButton SignInButton => GetByExpression<HtmlButton>(new string[] { "tagname=button", "class=~login" });
-        public HtmlButton ClearButton => GetByExpression<HtmlButton>(new string[] { "tagname=button", "class=~clear" });
-        public HtmlButton CancelButton => GetByExpression<HtmlButton>(new string[] { "tagname=button", "class=~cancel" });
+        public HtmlInputEmail EmailTextbox
+		{
+			get
+			{
+				return GetByExpression<HtmlInputEmail>("name=login");
+			}			
+		}
+        public HtmlInputPassword PasswordTextbox
+		{
+			get
+			{
+				return GetByExpression<HtmlInputPassword>("name=pass");
+			}
+		}
+		public HtmlButton SignInButton
+		{
+			get
+			{
+				return GetByExpression<HtmlButton>(new string[] { "tagname=button", "class=~login" });
+			}
+		}		
+        public HtmlButton ClearButton
+		{
+			get
+			{
+				return GetByExpression<HtmlButton>(new string[] { "tagname=button", "class=~clear" });
+			}
+		}			
+        public HtmlButton CancelButton
+		{
+			get
+			{
+				return GetByExpression<HtmlButton>(new string[] { "tagname=button", "class=~cancel" });
+			}
+		}		
 
         public LogInModal PopulateUser(User user)
         {

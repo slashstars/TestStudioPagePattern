@@ -18,14 +18,62 @@ namespace TestStudioPagePattern.Lib.AppPages.Pages
 
         private NewUserPage() { }
 
-        public HtmlInputEmail EmailTextbox => GetByExpression<HtmlInputEmail>("name=email");
-        public HtmlInputText FirstNameTextbox => GetByExpression<HtmlInputText>("name=firstName");
-        public HtmlInputText LastNameTextbox => GetByExpression<HtmlInputText>("name=lastName");
-        public HtmlInputPassword PasswordTextbox => GetByExpression<HtmlInputPassword>("name=password");
-        public HtmlInputPassword RepeatPasswordTextbox => GetByExpression<HtmlInputPassword>("name=passwordRepeat");
-        public HtmlInputCheckBox IsAdminCheckbox => GetByExpression<HtmlInputCheckBox>("type=checkbox");
-        public HtmlButton SaveButton => GetByExpression<HtmlButton>("class=~save");
-        public HtmlButton RevertButton => GetByExpression<HtmlButton>("class=~revert");
+        public HtmlInputEmail EmailTextbox
+		{
+			get
+			{
+				return GetByExpression<HtmlInputEmail>("name=email");
+			}
+		}		
+        public HtmlInputText FirstNameTextbox
+		{
+			get
+			{
+				return GetByExpression<HtmlInputText>("name=firstName");
+			}
+		}
+		public HtmlInputText LastNameTextbox
+		{
+			get
+			{
+				return GetByExpression<HtmlInputText>("name=lastName");
+			}
+		}		
+        public HtmlInputPassword PasswordTextbox
+		{
+			get
+			{
+				return GetByExpression<HtmlInputPassword>("name=password");
+			}
+		}		
+        public HtmlInputPassword RepeatPasswordTextbox
+		{
+			get
+			{
+				return GetByExpression<HtmlInputPassword>("name=passwordRepeat");
+			}
+		}		
+        public HtmlInputCheckBox IsAdminCheckbox
+		{
+			get
+			{
+				return GetByExpression<HtmlInputCheckBox>("type=checkbox");
+			}
+		}		
+        public HtmlButton SaveButton
+		{
+			get
+			{
+				return GetByExpression<HtmlButton>("class=~save");
+			}
+		}
+		public HtmlButton RevertButton
+		{
+			get
+			{
+				return GetByExpression<HtmlButton>("class=~revert");
+			}
+		}		
 
         public NewUserPage PopulateUser(User user)
         {

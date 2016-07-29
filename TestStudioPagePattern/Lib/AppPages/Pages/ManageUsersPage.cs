@@ -16,7 +16,21 @@ namespace TestStudioPagePattern.Lib.AppPages.Pages
 
         private ManageUsersPage() { }
 
-        public HtmlButton NewUserButton => GetByExpression<HtmlButton>("textContent=New User");
-        public HtmlDiv SuccessAlertDiv => GetByExpression<HtmlDiv>(new string[] { "tagname=div", "class=~alert-success" });
+        public HtmlButton NewUserButton
+		{
+			get
+			{
+				return GetByExpression<HtmlButton>("textContent=New User");
+			}
+		}
+		
+        public HtmlDiv SuccessAlertDiv
+		{
+			get
+			{
+				return GetByExpression<HtmlDiv>(new string[] { "tagname=div", "class=~alert-success" });
+			}
+		}
+		
     }
 }

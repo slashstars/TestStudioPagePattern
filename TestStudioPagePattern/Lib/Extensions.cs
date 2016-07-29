@@ -15,8 +15,8 @@ namespace TestStudioPagePattern.Lib
 
         public static void CheckEnabledAndClick(this HtmlButton button)
         {
-            if (button == null) throw new Exception($"Button is null.");
-            if (!button.IsEnabled) throw new Exception($"Button {button.TextContent} was disabled.");
+            if (button == null) throw new Exception("Button is null.");
+            if (!button.IsEnabled) throw new Exception("Button " + button.TextContent + " was disabled.");
             button.Click();
         }
     }
